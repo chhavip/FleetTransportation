@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
@@ -15,7 +16,7 @@ import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
  * Created by chhavi on 28/8/15.
  */
 public class AttendanceFragment extends Fragment {
-    private Button takePhoto;
+    private ImageButton takePhoto;
     private TextView attendanceText;
     @Nullable
     @Override
@@ -24,7 +25,7 @@ public class AttendanceFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.attendance_fragment_layout,null);
 
-        takePhoto = (Button)v.findViewById(R.id.take_photo);
+        takePhoto = (ImageButton)v.findViewById(R.id.take_photo);
         attendanceText = (TextView)v.findViewById(R.id.attendance_text);
         if(!AppPreferences.isLoggedIn(getActivity())) {
             attendanceText.setText("Attendace - IN");
@@ -32,7 +33,8 @@ public class AttendanceFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     AppPreferences.setLoggedInAsTrue(getActivity());
-                    ((MaterialNavigationDrawer) getActivity()).setFragment(new HomeFragment(), "Home");
+                    attendanceText.setText("Attendace - OUT");
+               //     ((MaterialNavigationDrawer) getActivity()).setFragment(new HomeFragment(), "Home");
                 }
             });
         }else{
@@ -42,7 +44,8 @@ public class AttendanceFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     AppPreferences.setLoggedInAsFalse(getActivity());
-                    ((MaterialNavigationDrawer) getActivity()).setFragment(new HomeFragment(), "Home");
+                    attendanceText.setText("Attendace - IN");
+              //      ((MaterialNavigationDrawer) getActivity()).setFragment(new HomeFragment(), "Home");
                 }
             });
 
