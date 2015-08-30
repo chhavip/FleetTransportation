@@ -7,19 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
-
 /**
- * Created by chhavi on 28/8/15.
+ * Created by chhavi on 29/8/15.
  */
-public class DieselSummaryFragment extends Fragment {
+public class PickupFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       // getActivity().getActionBar().setTitle("Diesel");
-        ((MaterialNavigationDrawer)this.getActivity()).getToolbar().setTitle("Diesel Summary");
-        return super.onCreateView(inflater, container, savedInstanceState);
-
+      //  return super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.pickup_layout,null);
+        return v;
     }
 }
